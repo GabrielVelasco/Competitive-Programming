@@ -1,7 +1,11 @@
+// This one I'm running all over the sub-matrices by using f**king 4 loops
+// though it's pretty easy to understand, once you did it you will undesrtand
+// the other algorithm for UVa_108 (UVa_108 opmtz.c)
+
 #include <stdio.h>
 #include <iostream>
 #include <time.h>
-#define max(a, b) a > b ? a : b;
+#define max(a, b) (((a) > (b)) ? (a) : (b));
 
 using namespace std;
 
@@ -18,6 +22,7 @@ int sumIJ_to_KL(int i, int j, int k, int l){
 void findSum(){
 	int maxSum, ans = mat[1][1];
 	int i, j, k, l;
+	// runs all over the sub-matrices
 	for(i = 1; i <= n; i++) for(j = 1; j <= n; j++){
 			for(k = i; k <= n; k++) for(l = j+1; l <= n; l++){
 					maxSum = sumIJ_to_KL(i, j, k, l); // Sum mat[i][j] -> mat[k][l]
@@ -40,7 +45,7 @@ int main(){
 			mat[i][j] += mat[i-1][j] + mat[i][j-1] - mat[i-1][j-1];
 		}
 	}
-	findSum(); // runs over all submatrix inside the main matrix
+	findSum(); // runs over all submatrices inside the main matrix
 
 	// t = clock() - t;
     // printf("Time elapsed: %f\n", (float)t/CLOCKS_PER_SEC);

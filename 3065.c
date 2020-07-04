@@ -16,18 +16,16 @@ int main(){
 		char exp[200000]; scanf("%s", exp);
 		int len = strlen(exp);
 		for(i = 0; i < len; i++){
-			count = 0;
-			while(isdigit( exp[i + count] ) && exp[i + count] != '\0'){
-				tmp_exp[j] = exp[i + count]; j++;
-				count ++;
+			while(isdigit( exp[i] ) && exp[i] != '\0'){
+				tmp_exp[j] = exp[i]; j++;
+				i ++;
 			}
 			tmp_exp[j] = '\0'; j = 0;
 			tmp_value = atoi(tmp_exp);
 			memset(tmp_exp, 0, sizeof(tmp_exp));
 			sum += tmp_value;
-			i = (i + count); 
 			if(exp[i] == '-' && exp[i] != '\0'){
-				tmp_exp[j] = exp[i]; 
+				tmp_exp[j] = '-'; 
 				j++;
 			}
 		}
