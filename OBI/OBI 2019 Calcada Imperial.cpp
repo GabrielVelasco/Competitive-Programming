@@ -1,7 +1,7 @@
-#include <bits/stdc++.h>
-#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
 
-using namespace std;
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
 #define MAXV 510
 
@@ -15,8 +15,10 @@ void testCase(){
 
 	int a, b, ans = 1, cont = 0;
 
-	// preciso testar todos os pares possíveis 
-	// (vet[1] e vet[2], vet[1] e vet[3] ... vet[n-1] e vet[n])
+	// preciso testar TODOS os pares possíveis 
+	// vet[1] e vet[2], vet[1] e vet[3] ...
+	// ... vet[2] e vet[3], vet[2] e vet[4] ... 
+	// ... vet[n-1] e vet[n]
 
 	for(i = 1; i <= n; i++){
 		for(j = i + 1; j <= n; j++){
@@ -31,7 +33,7 @@ void testCase(){
 			for(k = j + 1; k <= n; k++){
 				// A == primeiro numero, B == segundo numero
 				// nao pode ter dois num iguais marcados consecutivamente
-				// logo tenho que procurar por A
+				// logo tenho que procurar por A (primeiro num)
 				if(vet[k] == a){
 					cont ++;
 					int tmp = a; // agora faz a troca swap(A, B)
@@ -43,7 +45,7 @@ void testCase(){
 		}
 
 	}
-	printf("%d\n", ans);;
+	printf("%d\n", ans);
 }
 
 int main(){
