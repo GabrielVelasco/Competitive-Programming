@@ -2,7 +2,6 @@
 // precisa de optimização
 
 #include <iostream>
-#include <stdlib.h>
 #include <bits/stdc++.h>
 
 #define ll long long
@@ -18,6 +17,8 @@ char sheet[MAXS][MAXS];
 vector<pair<int, int> > zerosCord; // salva cordenadas de todos os 0's
 
 int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 	int n; cin >> n;
 	for(int i = 1; i <= n; i++){
 		for(int j = 1; j <= n; j++){
@@ -37,7 +38,7 @@ int main(){
 				// calc D min entre i, j e um dos 0's q estar no vector
 				for(int a = 0; a < zSize; a++){ // a percorre zerosCord
 					int tmpI, tmpJ;
-					distT = distF; // salva dist anterior para pds pegar o min
+					distT = distF; // salva dist anterior para depois pegar o min
 					tmpI = abs(i - zerosCord[a].first);
 					tmpJ = abs(j - zerosCord[a].second);
 					distF = tmpI + tmpJ; // dist final
